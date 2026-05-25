@@ -13,17 +13,19 @@ namespace proiect_daczo_remus_1050
         private string categorie;
         private float pret;
         private int cantitateStoc;
+        private Furnizor furnizor;
 
 
-        public Produs(int cP, string d, string cat,float p,int cant) {
+        public Produs(int cP, string d, string cat,float p,int cant,Furnizor f) {
             codProdus = cP;
             denumire = d;
             categorie = cat;
             pret = p;
             cantitateStoc = cant;
+            furnizor = f;
         }
 
-        public int CodMaterial
+        public int CodProdus
         {
             get { return codProdus; }
             set { codProdus = value; }
@@ -51,8 +53,13 @@ namespace proiect_daczo_remus_1050
         {
             get { return cantitateStoc; }
             set { if(value>=0) cantitateStoc = value;}
-            
         }
+        public Furnizor Furnizor
+        {
+            get { return furnizor; }
+            set { furnizor = value; }
+        }
+
         public void ModificaStoc(int cant, string tip)
         {
             if (tip == "Intrare")
@@ -62,7 +69,8 @@ namespace proiect_daczo_remus_1050
         }
         public override string ToString()
         {
-            return "Denumirea este " + denumire + ", iar stocul este " + cantitateStoc;
+            return "Cod produs: " + codProdus + " | " +"Denumire: "+denumire+ " | " +"Categorie: "+categorie 
+                + " | " + "Pret: " +pret + " | " + "Cantitate stoc: " +cantitateStoc+ " | " +furnizor.ToString() ;
         }
 
     }
