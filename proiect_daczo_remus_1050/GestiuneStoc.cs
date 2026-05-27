@@ -23,6 +23,7 @@ namespace proiect_daczo_remus_1050
 
         public List<Produs> Produse { get { return produse; } }
         public List<Furnizor> Furnizori { get { return furnizori; } }
+        public List<Comanda> Comenzi { get { return comenzi; } }
 
         public void AdaugaProdus(Produs p)
         {

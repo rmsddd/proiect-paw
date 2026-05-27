@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace proiect_daczo_remus_1050
 {
+    
     internal class Produs
     {
         private int codProdus;
@@ -15,7 +18,7 @@ namespace proiect_daczo_remus_1050
         private int cantitateStoc;
         private Furnizor furnizor;
 
-
+        public Produs() { }
         public Produs(int cP, string d, string cat,float p,int cant,Furnizor f) {
             codProdus = cP;
             denumire = d;
@@ -25,6 +28,7 @@ namespace proiect_daczo_remus_1050
             furnizor = f;
         }
 
+        [Key]
         public int CodProdus
         {
             get { return codProdus; }
@@ -69,8 +73,9 @@ namespace proiect_daczo_remus_1050
         }
         public override string ToString()
         {
-            return "Cod produs: " + codProdus + " | " +"Denumire: "+denumire+ " | " +"Categorie: "+categorie 
-                + " | " + "Pret: " +pret + " | " + "Cantitate stoc: " +cantitateStoc+ " | " +furnizor.ToString() ;
+            return "Cod produs: " + codProdus + " | " + "Denumire: " + denumire + " | " + "Categorie: " + categorie
+                + " | " + "Pret: " + pret + " | " + "Cantitate stoc: " + cantitateStoc
+                + " | " + (furnizor != null ? furnizor.ToString() : "N/A");
         }
 
     }

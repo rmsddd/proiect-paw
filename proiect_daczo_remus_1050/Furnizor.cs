@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace proiect_daczo_remus_1050
         private string telefon;
         private List<Produs> produse;
 
+
+        public Furnizor() { }
         public Furnizor(int c, string n, string tel)
         {
             codFurnizor = c;
@@ -21,6 +24,7 @@ namespace proiect_daczo_remus_1050
             produse = new List<Produs>();
         }
 
+        [Key]
         public int CodFurnizor
         {
             get { return codFurnizor; }
@@ -46,17 +50,7 @@ namespace proiect_daczo_remus_1050
 
         public override string ToString()
         {
-            string rezultat = "Furnizor: " + nume + "\n";
-            rezultat += "Cod furnizor: " + codFurnizor + "\n";
-            rezultat += "Telefonul furnizorului: " + telefon + "\n";
-            rezultat += "Produse:\n";
-
-            foreach (Produs p in produse)
-            {
-                rezultat += p.ToString() + "\n";
-            }
-
-            return rezultat;
+            return "Furnizor: " + nume + " | Cod: " + codFurnizor + " | Tel: " + telefon;
         }
 
     }
